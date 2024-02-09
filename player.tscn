@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://qe588423211k"]
+
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_p2vfm"]
+[ext_resource type="Script" path="res://player.gd" id="1_vyehf"]
+[ext_resource type="PackedScene" uid="uid://ctk602i0knue3" path="res://gun.tscn" id="3_vp8f8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w4fb7"]
+radius = 31.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2pbv"]
+radius = 35.6931
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd1gw"]
+bg_color = Color(0.152941, 0.168627, 0.188235, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wuom7"]
+bg_color = Color(0.388235, 0.8, 0.372549, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_vyehf")
+
+[node name="HappyBoo" parent="." instance=ExtResource("1_p2vfm")]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w4fb7")
+
+[node name="Gun" parent="." instance=ExtResource("3_vp8f8")]
+position = Vector2(-9, -28)
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_p2pbv")
+debug_color = Color(0.929412, 0.129412, 0.580392, 0.176471)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -67.0
+offset_top = -126.0
+offset_right = 67.0
+offset_bottom = -106.0
+theme_override_styles/background = SubResource("StyleBoxFlat_yd1gw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wuom7")
+step = 0.1
+value = 100.0
+show_percentage = false
+
+[connection signal="health_depeleted" from="." to="." method="_on_health_depeleted"]
