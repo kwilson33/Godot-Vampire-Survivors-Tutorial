@@ -9,6 +9,12 @@ func _ready() -> void:
 	# TODO: I don't like the way I'm updating the label text here
 	%KillCount.text = "Killed: {0}".format([enemyDeathCount])
 
+# TODO: Not sure if I should be using _process here, or _physics_process, or if I should access coordinates via a singleton
+func _process(delta: float) -> void:
+	var player_x: String = str(round(%Player.global_position.x))
+	var player_y: String = str(round(%Player.global_position.y))
+	%Coordinates.text = "x:{x}, y: {y}".format({"x":player_x,"y":player_y})
+
 func spawn_mob(resource: Resource) -> void:
 	# Instantiate new mob & connect the killed signal
 	var new_mob: Node = resource.instantiate()

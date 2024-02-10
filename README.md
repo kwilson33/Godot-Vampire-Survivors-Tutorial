@@ -13,15 +13,19 @@ I finished the tutorial, and the first commit is pretty much just following the 
 * Randomly spawn trees/other objects in map
 * Clean up the enemy code/use 'composition' better. Right now, lots of duplicated code between slime + pikmin code.
 * Make different enemies do different damage.
+* Use singletons to better share data
 
 ## Completed tasks
 * Tutorial completed on **2/7/24**
 * Counter + label added for enemies killed **2/10/24**
 * Imported some of my [pixel art](https://github.com/kwilson33/Pixel-Art) (red pikmin) and got them animated in the game **2/10/24**
-* Add additional enemies (red pikmin) **2/10/24**
+* Added additional enemies (red pikmin) **2/10/24**
+* Added label to show x,y coordinates
 
 ---
 
 ### Screenshots
-**Taken 2/10/24, game in action**
-![Test Image 1](gameplay-screenshot.png) 
+**Taken 2/10/24**
+![Gameplay](screenshots/gameplay-screenshot.png) 
+**Taken 2/10/24**
+![Gameover](screenshots/gameover-screenshot.png) 

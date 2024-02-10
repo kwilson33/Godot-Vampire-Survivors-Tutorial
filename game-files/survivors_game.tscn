@@ -22,9 +22,9 @@ y_sort_enabled = true
 position = Vector2(-39, 3)
 script = ExtResource("1_rmbkt")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="KillCount" type="Label" parent="CanvasLayer2"]
+[node name="KillCount" type="Label" parent="HUD"]
 unique_name_in_owner = true
 offset_left = -1.0
 offset_top = -1.0
@@ -37,6 +37,16 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_kpbb5")
 text = "
 "
 
+[node name="Coordinates" type="Label" parent="HUD"]
+unique_name_in_owner = true
+offset_left = 1749.0
+offset_right = 1920.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_b2ven")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_kpbb5")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -44,14 +54,12 @@ layer = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -7.0
-offset_top = -1.0
-offset_right = 22.0
-offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_afp3a")]
+unique_name_in_owner = true
 position = Vector2(932, 602)
 
 [node name="Path2D" type="Path2D" parent="Player"]
