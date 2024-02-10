@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal health_depeleted
 
 var health: float = 100.0
-const DAMAGE_RATE:float = 25.0
+const DAMAGE_RATE:float = 100.0
 
 # TODO: Make damage higher over time and based on enemies killed
 

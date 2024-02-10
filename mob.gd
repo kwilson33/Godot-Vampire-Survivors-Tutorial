@@ -4,6 +4,8 @@ extends CharacterBody2D
 
 const SMOKE_EXPLOSION: Resource = preload("res://smoke_explosion/smoke_explosion.tscn")
 
+signal killed
+
 func _ready() -> void:
 	%Slime.play_walk_animation()
 
@@ -25,4 +27,5 @@ func take_damage() -> void:
 		# Add smoke as a 'sibling' of the mob instead of as child
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
+		killed.emit()
 		queue_free()

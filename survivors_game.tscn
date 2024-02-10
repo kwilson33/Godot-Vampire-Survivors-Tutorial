@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://skjawqanqgt2"]
+[gd_scene load_steps=8 format=3 uid="uid://skjawqanqgt2"]
 
 [ext_resource type="PackedScene" uid="uid://qe588423211k" path="res://player.tscn" id="1_afp3a"]
 [ext_resource type="Script" path="res://survivors_game.gd" id="1_rmbkt"]
 [ext_resource type="PackedScene" uid="uid://t3uy5fwt5pjq" path="res://pine_tree.tscn" id="2_bmpf8"]
+
+[sub_resource type="FontVariation" id="FontVariation_b2ven"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpbb5"]
+bg_color = Color(1, 0.835294, 0, 0.596078)
 
 [sub_resource type="Curve2D" id="Curve2D_ra84p"]
 _data = {
@@ -10,10 +15,27 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="FontVariation" id="FontVariation_21dhd"]
+
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(-39, 3)
 script = ExtResource("1_rmbkt")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="KillCount" type="Label" parent="CanvasLayer2"]
+unique_name_in_owner = true
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 170.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_b2ven")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_kpbb5")
+text = "
+"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -37,35 +59,37 @@ unique_name_in_owner = true
 position = Vector2(-162, -105)
 rotation = 1.57238
 
-[node name="PineTree" parent="." instance=ExtResource("2_bmpf8")]
-position = Vector2(744, 614)
+[node name="Trees" type="Node" parent="."]
 
-[node name="PineTree2" parent="." instance=ExtResource("2_bmpf8")]
-position = Vector2(924, 370)
+[node name="PineTree4" parent="Trees" instance=ExtResource("2_bmpf8")]
+position = Vector2(1484, 478)
 
-[node name="PineTree10" parent="." instance=ExtResource("2_bmpf8")]
-position = Vector2(456, 199)
+[node name="PineTree9" parent="Trees" instance=ExtResource("2_bmpf8")]
+position = Vector2(1723, 244)
 
-[node name="PineTree3" parent="." instance=ExtResource("2_bmpf8")]
-position = Vector2(1194, 995)
+[node name="PineTree" parent="Trees" instance=ExtResource("2_bmpf8")]
+position = Vector2(705, 617)
 
-[node name="PineTree8" parent="." instance=ExtResource("2_bmpf8")]
-position = Vector2(1399, 789)
+[node name="PineTree2" parent="Trees" instance=ExtResource("2_bmpf8")]
+position = Vector2(885, 373)
 
-[node name="PineTree4" parent="." instance=ExtResource("2_bmpf8")]
-position = Vector2(1523, 475)
+[node name="PineTree10" parent="Trees" instance=ExtResource("2_bmpf8")]
+position = Vector2(417, 202)
 
-[node name="PineTree9" parent="." instance=ExtResource("2_bmpf8")]
-position = Vector2(1762, 241)
+[node name="PineTree3" parent="Trees" instance=ExtResource("2_bmpf8")]
+position = Vector2(1155, 998)
 
-[node name="PineTree5" parent="." instance=ExtResource("2_bmpf8")]
-position = Vector2(394, 411)
+[node name="PineTree5" parent="Trees" instance=ExtResource("2_bmpf8")]
+position = Vector2(355, 414)
 
-[node name="PineTree6" parent="." instance=ExtResource("2_bmpf8")]
-position = Vector2(432, 893)
+[node name="PineTree6" parent="Trees" instance=ExtResource("2_bmpf8")]
+position = Vector2(393, 896)
 
-[node name="PineTree7" parent="." instance=ExtResource("2_bmpf8")]
-position = Vector2(213, 611)
+[node name="PineTree7" parent="Trees" instance=ExtResource("2_bmpf8")]
+position = Vector2(174, 614)
+
+[node name="PineTree8" parent="Trees" instance=ExtResource("2_bmpf8")]
+position = Vector2(1360, 792)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.75
@@ -84,6 +108,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.937255)
 
 [node name="GameOverText" type="Label" parent="GameOverScreen/ColorRect"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -96,9 +121,11 @@ offset_right = 123.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.976296, 0, 0.247847, 1)
+theme_override_fonts/font = SubResource("FontVariation_21dhd")
 theme_override_font_sizes/font_size = 100
-text = "GAME OVER. SLIME SUPREMACY.
-"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="health_depeleted" from="Player" to="." method="_on_player_health_depeleted"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]

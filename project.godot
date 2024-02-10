@@ -88,11 +88,16 @@ gdscript/warnings/inferred_declaration=1
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/always_on_top=true
 window/stretch/mode="viewport"
 
 [dotnet]
 
 project/assembly_name="Getting started with Godot 4"
+
+[editor]
+
+import/size/always_on_top=true
 
 [editor_plugins]
 
