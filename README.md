@@ -1,8 +1,11 @@
 #  Godot-Vampire-Survivors-Tutorial
-I followed GDQuest's [guide](https://www.youtube.com/watch?v=GwCiGixlqiU).
-I finished the tutorial, and the first commit is pretty much just following the tutorial exactly.
 
-Subsequent commits will be additional features added on to the tutorial. Some ideas are
+## Intro
+I followed GDQuest's [guide](https://www.youtube.com/watch?v=GwCiGixlqiU).
+I finished the tutorial, and the first commit is pretty much just following the tutorial exactly. Subsequent commits contain additional features.
+
+
+## Ideas for things to implement
 * Increase damage of enemies depending on time and enemies killed.
 
 * Add a powerup.
@@ -19,6 +22,6 @@ Subsequent commits will be additional features added on to the tutorial. Some id
 
 ---
 
-### Game Screenshot 
-Taken 2/10/24
-![Test Image 1](game-screenshot.png) 
+### Screenshots
+**Taken 2/10/24, game in action**
+![Test Image 1](gameplay-screenshot.png) 
