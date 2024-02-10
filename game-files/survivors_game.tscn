@@ -136,6 +136,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="health_depeleted" from="Player" to="." method="_on_player_health_depeleted"]
-[connection signal="timeout" from="SlimeSpawnTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="SlimeSpawnTimer" to="." method="_on_slime_spawn_timer_timeout"]
+[connection signal="timeout" from="SlimeSpawnTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RedPikminSpawnTimer" to="." method="_on_red_pikmin_spawn_timer_timeout"]
