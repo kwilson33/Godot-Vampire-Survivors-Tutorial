@@ -4,11 +4,14 @@ I finished the tutorial, and the first commit is pretty much just following the 
 
 Subsequent commits will be additional features added on to the tutorial. Some ideas are
 * Increase damage of enemies depending on time and enemies killed.
-* Add additional enemies
-* Import some of my [pixel art](https://github.com/kwilson33/Pixel-Art), and get them animated in the game.
+
 * Add a powerup.
 * Add a second level.
+* Randomly spawn trees/other objects in map
+* Clean up the enemy code/use 'composition' better. Right now, lots of duplicated code between slime + pikmin code.
 
 ## Completed tasks
-* Tutorial completed on 2/7/24
-* Counter + label added for enemies killed 2/10/24
+* Tutorial completed on **2/7/24**
+* Counter + label added for enemies killed **2/10/24**
+* Imported some of my [pixel art](https://github.com/kwilson33/Pixel-Art) (red pikmin) and got them animated in the game **2/10/24**
+* Add additional enemies (red pikmin) **2/10/24**

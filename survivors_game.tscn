@@ -44,6 +44,10 @@ layer = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -1.0
+offset_right = 22.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -91,8 +95,12 @@ position = Vector2(174, 614)
 [node name="PineTree8" parent="Trees" instance=ExtResource("2_bmpf8")]
 position = Vector2(1360, 792)
 
-[node name="SpawnTimer" type="Timer" parent="."]
+[node name="SlimeSpawnTimer" type="Timer" parent="."]
 wait_time = 0.75
+autostart = true
+
+[node name="RedPikminSpawnTimer" type="Timer" parent="."]
+wait_time = 1.25
 autostart = true
 
 [node name="GameOverScreen" type="CanvasLayer" parent="."]
@@ -128,4 +136,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="health_depeleted" from="Player" to="." method="_on_player_health_depeleted"]
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SlimeSpawnTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SlimeSpawnTimer" to="." method="_on_slime_spawn_timer_timeout"]
+[connection signal="timeout" from="RedPikminSpawnTimer" to="." method="_on_red_pikmin_spawn_timer_timeout"]

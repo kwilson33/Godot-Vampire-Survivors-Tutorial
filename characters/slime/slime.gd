@@ -1,6 +1,5 @@
 extends Node2D
 
-
 func play_walk_animation() -> void:
 	%AnimationPlayer.play("walk")
 

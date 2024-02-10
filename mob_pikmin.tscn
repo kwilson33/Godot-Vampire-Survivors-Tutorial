@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6fxtr2ik562i"]
+
+[ext_resource type="Script" path="res://mob_pikmin.gd" id="1_0wxq6"]
+[ext_resource type="PackedScene" uid="uid://dwcart54wln4j" path="res://red_pikmin.tscn" id="2_lbd6q"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ci2ye"]
+radius = 31.0
+height = 86.0
+
+[node name="MobPikmin" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_0wxq6")
+
+[node name="RedPikmin" parent="." instance=ExtResource("2_lbd6q")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 7)
+shape = SubResource("CapsuleShape2D_ci2ye")

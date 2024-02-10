@@ -1,6 +1,7 @@
 extends Node2D
 
-const MOB: Resource = preload("res://mob.tscn")
+const MOB_SLIME: Resource = preload("res://mob_slime.tscn")
+const MOB_PIKMIN: Resource = preload("res://mob_pikmin.tscn")
 
 var enemyDeathCount: int = 0
 
@@ -8,9 +9,9 @@ func _ready() -> void:
 	# TODO: I don't like the way I'm updating the label text here
 	%KillCount.text = "Killed: {0}".format([enemyDeathCount])
 
-func spawn_mob() -> void:
+func spawn_mob(resource: Resource) -> void:
 	# Instantiate new mob & connect the killed signal
-	var new_mob: Node = MOB.instantiate()
+	var new_mob: Node = resource.instantiate()
 	new_mob.killed.connect(_on_enemy_killed)
 	
 	# Get random value along path surrounding game area
@@ -18,9 +19,12 @@ func spawn_mob() -> void:
 	new_mob.global_position = %PathFollow2D.global_position
 	add_child(new_mob)
 	
+func _on_slime_spawn_timer_timeout() -> void:
+	spawn_mob(MOB_SLIME)
+	
 
-func _on_timer_timeout() -> void:
-	spawn_mob()
+func _on_red_pikmin_spawn_timer_timeout() -> void:
+	spawn_mob(MOB_PIKMIN)
 
 func _on_player_health_depeleted() -> void:
 	# TODO: Move this code somewhere else for managing the game over stuff
@@ -35,3 +39,9 @@ func _on_enemy_killed() -> void:
 	%KillCount.text = "Killed: {0}".format([enemyDeathCount])
 	#print("enemyDeathCount = {enemyDeathCount}".format({"enemyDeathCount": enemyDeathCount}))
 	
+
+
+
+
+
+
